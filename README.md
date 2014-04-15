@@ -11,6 +11,11 @@ Each matched occurrence, is replaced with the specified HTML (see examples)
 
 In addition, when run in a Browser, it can insert emoticon symbols to INPUT fields, in the caret (cursor) position.
 
+### Demo
+
+you can access a simple demo at:
+http://emoparser.herokuapp.com/
+
 ## Install
 
 ```bash
