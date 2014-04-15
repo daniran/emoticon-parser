@@ -1,7 +1,7 @@
 Emoticons Parser
 =======
 
-Description
+## Description
 
 This module takes text input, and parses it for occurrences of emoticons.
 
