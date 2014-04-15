@@ -25,6 +25,16 @@ Or in a browser, simply include the emo-parser file:
 
 ## Usage
 
+This code initialize a parser instance.
+
+Each emoticon is defined by it's key.
+
+If the emoticon contains an array of emo definitions, the text is searched for every symbol occurrence.
+
+Symbols that can be mirrored like `:-)` `(-:` are also searched for.
+
+The `emoticon_html` is used when an emoticon is matched.
+
 ```js
 var parser = new EmoticonParser({
     debug: true,
@@ -39,7 +49,13 @@ var parser = new EmoticonParser({
 
 For example:
 
-The text `hello :( world (zzz) :~` is replaced with:
+A call to
+
+```js
+parser.parseText("hello :( world (zzz) :~")
+```
+
+returns:
 
 ```html
 hello <span class="emo-class emoticon-sad" title="sad"></span> world <span class="emo-class emoticon-zzz" title="zzz"></span> <span class="emo-class emoticon-zzz" title="zzz"></span>
