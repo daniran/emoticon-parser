@@ -71,7 +71,9 @@ See more examples in the examples.js
 ## Parser
 
 Actual parsing is done by building a tree of characters during initialization.
-The tree contains all possible symbol combinations - when running with `debug: true` you can see the tree printed to console, depending on the emoticon symbols, it would look something like this:
+The tree contains all possible symbol combinations - when running with `debug: true` you can see the tree printed to console.
+
+Depending on the emoticon symbols, it would look something like this:
 
 ```
   ├─┬ :
