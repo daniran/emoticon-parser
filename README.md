@@ -66,8 +66,51 @@ returns:
 hello <span class="emo-class emoticon-sad" title="sad"></span> world <span class="emo-class emoticon-zzz" title="zzz"></span> <span class="emo-class emoticon-zzz" title="zzz"></span>
 ```
 
-
 See more examples in the examples.js
+
+## Parser
+
+Actual parsing is done by building a tree of characters during initialization.
+The tree contains all possible symbol combinations - when running with `debug: true` you can see the tree printed to console, depending on the emoticon symbols, it would look something like this:
+
+```
+  ├─┬ :
+  │ ├── ) #happy  :)
+  │ ├─┬ -
+  │ │ ├── ) #happy  :-)
+  │ │ ├── ] #happy  :-]
+  │ │ ├── D #LOL  :-D
+  │ │ ├── / #puzzled  :-/
+  │ │ ├── ( #sad  :-(
+  │ │ ├── [ #angry  :-[
+  │ │ ├── O #shocked  :-O
+  │ │ └── o #surprised  :-o
+  │ ├── ] #happy  :]
+  │ ├── D #LOL  :D
+  │ ├── / #puzzled  :/
+  │ ├── ( #sad  :(
+  │ ├── [ #angry  :[
+  │ ├── O #shocked  :O
+  │ └── o #surprised  :o
+  ├─┬ [
+  │ ├── : #happy  [:
+  │ └─┬ -
+  │   └── : #happy  [-:
+  ├─┬ \
+  │ ├── : #puzzled  \:
+  │ └─┬ -
+  │   └── : #puzzled  \-:
+  ├─┬ )
+  │ ├── : #sad  ):
+  │ └─┬ -
+  │   └── : #sad  )-:
+  ├─┬ ]
+  │ ├── : #angry  ]:
+  │ └─┬ -
+  │   └── : #angry  ]-:
+```
+
+During a call to `parseText()` the input text is compared against the tree char by char, until a symbol is matched.
 
 ## Tests
 
